@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+}
+body,html {
+  height: 100vh;
+}
+.container {
+  background-color: aqua;
+  height: 100%;
+ 
+}
+h1,header {
+  height: 100%;
+}
+.title {
+  font-size: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
