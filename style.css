@@ -22,4 +22,18 @@ h1,header {
   background: repeating-linear-gradient(rosybrown,rosybrown 3px,transparent 3px,transparent 5px);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation-name: s;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+}
+@keyframes s {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+
 }
