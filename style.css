@@ -41,4 +41,10 @@ h1,header {
 .inputs {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 100px;
+}
+
+.game {
+  display: flex;
+  justify-content: space-around;
 }
