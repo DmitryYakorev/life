@@ -37,3 +37,8 @@ h1,header {
   }
 
 }
+
+.inputs {
+  display: flex;
+  justify-content: space-around;
+}
