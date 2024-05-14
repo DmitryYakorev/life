@@ -7,7 +7,7 @@ let stop = document.getElementById('circles').value;
 let str = document.getElementById('size').value;
 str = str.split('X').map(el => +el);
 // console.log(str);
-[m, n] = str;
+[n, m] = str;
 //console.log(m, n);
 document.getElementById('circles').onchange = New_stop;
 document.getElementById('size').onchange = New_size;
@@ -18,7 +18,7 @@ let count = 0;
 function New_size() {
   str = document.getElementById('size').value;
 str = str.split('X');
-[m, n] = str;
+[n, m] = str;
 draw();
 }
 function New_stop() {
@@ -51,9 +51,9 @@ function draw() {
   }
 }
 function go() {
-  let arr2 = [];  for (let i = 0; i < 30; ++i) {
+  let arr2 = [];  for (let i = 0; i < n; ++i) {
     arr2[i] = [];
-    for (let j = 0; j < 30; ++j) {
+    for (let j = 0; j < m; ++j) {
       let neighbors = 0;
    //   console.log(neighbors, arr, i, j);
       if (arr[fmm(i) - 1][j] === 1) neighbors++;
@@ -81,11 +81,11 @@ function go() {
 }
 }
 function fmm(i) {
-  if (i === 0) return 30
+  if (i === 0) return Math.min(n, m)
   else return i;
 }
 function fmp(i) {
-  if (i === 29) return -1
+  if (i === Math.min(n, m) - 1) return -1
   else return i;
 }
 initLife()
