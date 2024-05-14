@@ -1,8 +1,10 @@
 let canvas = document.getElementById("c1");
-let start = document.getElementsByTagName('button');
+let start = document.getElementsByClassName('start');
+// console.log(start);
 
 let ctx = canvas.getContext("2d")
-let arr = []
+let arr = [];
+let timer;
 
 function initLife() {
   let n = 30,
@@ -25,6 +27,7 @@ function newSet(event) {
 function draw() {
   ctx.clearRect (0, 0, 300, 300);
   for (let i = 0; i < 30; ++i) {
+
     for (let j = 0; j < 30; ++j) {
       if (arr[i][j] === 1) ctx.fillRect (i * 10,j * 10, 10, 10);
     }
@@ -32,11 +35,16 @@ function draw() {
 }
 function go() {
   let arr2 = [];  for (let i = 0; i < 30; ++i) {
+    arr2[i] = [];
     for (let j = 0; j < 30; ++j) {
       let neighbors = 0;
+   //   console.log(neighbors, arr, i, j);
       if (arr[fmm(i) - 1][j] === 1) neighbors++;
+     // console.log('!');
       if (arr[i][fmp(j) + 1] === 1) neighbors++;
+     // console.log('!');
       if (arr[fmp(i) + 1][j] === 1) neighbors++;
+     // console.log('!');
       if (arr[i][fmm(j) - 1] === 1) neighbors++;
       if (arr[fmm(i) - 1][fmp(j) + 1] === 1) neighbors++;
       if (arr[fmp(i) + 1][fmp(j) + 1] === 1) neighbors++;
@@ -48,17 +56,22 @@ function go() {
     }
   }
   arr = arr2;
+  console.log(arr);
   draw();
+  timer = setInterval(go,1000);
 }
 function fmm(i) {
   if (i === 0) return 30
   else return i;
 }
 function fmp(i) {
-  if (i === 30) return -1
+  if (i === 29) return -1
   else return i;
 }
 initLife()
+// timer = setInterval(go,1000);
 
 canvas.addEventListener("click", newSet);
-start.addEventListener('click',go);
+start[0].addEventListener("click", go);
+
+//start.addEventListener("click",go);
