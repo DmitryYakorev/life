@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+}
+body,html {
+  height: 100vh;
+}
+.container {
+  background-color: aqua;
+  height: 100%;
+ 
+}
+h1,header {
+  height: 30%;
+}
+.title {
+  font-size: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  
+  background: repeating-linear-gradient(rosybrown,rosybrown 3px,transparent 3px,transparent 5px);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-name: s;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+}
+@keyframes s {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+
+}
+
+.inputs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 100px;
+}
+
+.game {
+  display: flex;
+  justify-content: space-around;
+}
+#c1 {
+  
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.start {
+  cursor: pointer;
+  background-color: brown;
+  font-size: large;
+  width: 100px;
+  height: 60px;
+  color: yellowgreen;
+  border-radius: 50%;
+}
