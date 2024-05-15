@@ -1,14 +1,26 @@
+let elem = document.createElement('canvas');
+elem.setAttribute('id', 'c1');
+let div = document.getElementsByClassName('field')[0];
+
+
+div.prepend(elem);
+
+let pi = Math.PI;
+
 let canvas = document.getElementById("c1");
-let start = document.getElementsByClassName('start');
-// console.log(start);
+let start = document.querySelector('.start');
+
 let stop = document.getElementById('circles').value;
-// console.log(stop);
+
 
 let str = document.getElementById('size').value;
 str = str.split('X').map(el => +el);
-// console.log(str);
+
 [n, m] = str;
-//console.log(m, n);
+elem.setAttribute('width', `${n * 10}px`);
+elem.setAttribute('height', `${m * 10}px`);
+div.prepend(elem);
+
 document.getElementById('circles').onchange = New_stop;
 document.getElementById('size').onchange = New_size;
 let ctx = canvas.getContext("2d")
@@ -19,7 +31,11 @@ function New_size() {
   str = document.getElementById('size').value;
 str = str.split('X');
 [n, m] = str;
+elem.setAttribute('width', `${n * 10}px`);
+elem.setAttribute('height', `${m * 10}px`);
+canvas = document.getElementById("c1");
 draw();
+initLife();
 }
 function New_stop() {
   stop = document.getElementById('circles').value;
@@ -36,9 +52,9 @@ function initLife() {
 function newSet(event) {
   let x = event.offsetX
   let y = event.offsetY
-  x = Math.floor(x / 10)
-  y = Math.floor(y / 10)
-  arr[x][y] = 1;
+  x = Math.floor(x / 10);
+  y = Math.floor(y / 10);
+ (arr[x][y] === 0) ? arr[x][y] = 1 : arr[x][y] = 0 ;
   draw();
 }
 function draw() {
@@ -46,7 +62,17 @@ function draw() {
   for (let i = 0; i < n; ++i) {
 
     for (let j = 0; j < m; ++j) {
-      if (arr[i][j] === 1) ctx.fillRect (i * 10,j * 10, 10, 10);
+      if (arr[i][j] === 1) {
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = 'black';
+        ctx.fillStile = 'black';
+        ctx.arc((i + .5) * 10, (j + .5) * 10, 5, 0, 2 * pi , false);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+        
+      }
     }
   }
 }
@@ -55,13 +81,13 @@ function go() {
     arr2[i] = [];
     for (let j = 0; j < m; ++j) {
       let neighbors = 0;
-   //   console.log(neighbors, arr, i, j);
+   
       if (arr[fmm(i) - 1][j] === 1) neighbors++;
-     // console.log('!');
+     
       if (arr[i][fmp(j) + 1] === 1) neighbors++;
-     // console.log('!');
+     
       if (arr[fmp(i) + 1][j] === 1) neighbors++;
-     // console.log('!');
+     
       if (arr[i][fmm(j) - 1] === 1) neighbors++;
       if (arr[fmm(i) - 1][fmp(j) + 1] === 1) neighbors++;
       if (arr[fmp(i) + 1][fmp(j) + 1] === 1) neighbors++;
@@ -74,11 +100,14 @@ function go() {
     }
   }
   arr = arr2;
-  if (count < stop) {count++;
+  if (count < stop) {
+    count++;
   document.getElementsByClassName('count')[0].innerHTML = count;
   draw();
   timer = setTimeout(go,1000);
+  
 }
+else count = 0;
 }
 function fmm(i) {
   if (i === 0) return Math.min(n, m)
@@ -92,6 +121,6 @@ initLife()
 // timer = setInterval(go,1000);
 
 canvas.addEventListener("click", newSet);
-start[0].addEventListener("click", go);
+start.addEventListener("click", go);
 
-//start.addEventListener("click",go);
+

@@ -49,7 +49,17 @@ h1,header {
   justify-content: space-around;
 }
 #c1 {
-  height: 300px;
-  width: 300px;
+  
   border: 1px solid black;
+  cursor: pointer;
+}
+
+.start {
+  cursor: pointer;
+  background-color: brown;
+  font-size: large;
+  width: 100px;
+  height: 60px;
+  color: yellowgreen;
+  border-radius: 50%;
 }
