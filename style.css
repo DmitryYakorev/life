@@ -55,6 +55,9 @@ h1,header {
 }
 
 .start {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   cursor: pointer;
   background-color: brown;
   font-size: large;
@@ -62,4 +65,8 @@ h1,header {
   height: 60px;
   color: yellowgreen;
   border-radius: 50%;
+}
+.rules {
+  display: flex;
+  justify-content: space-around;
 }
