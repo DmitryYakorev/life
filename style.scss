@@ -1,12 +1,15 @@
 * {
-  margin: 0;
+  margin: 10;
 }
 body,html {
   height: 100vh;
+  background-color: aqua;
 }
 .container {
-  background-color: aqua;
-  height: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  height: 300px;
  
 }
 h1,header {
@@ -44,20 +47,28 @@ h1,header {
   margin-bottom: 100px;
 }
 
-.game {
-  display: flex;
-  justify-content: space-around;
-}
+
 #c1 {
   
   border: 1px solid black;
   cursor: pointer;
 }
 
+#size {
+  margin-left: 20px;
+}
+
+a {
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: brown;
+}
+
 .start {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  align-self: center;
   cursor: pointer;
   background-color: brown;
   font-size: large;
@@ -65,8 +76,16 @@ h1,header {
   height: 60px;
   color: yellowgreen;
   border-radius: 50%;
+  margin: 20px auto;
 }
+
 .rules {
   display: flex;
   justify-content: space-around;
+}
+
+.game {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
 }
