@@ -66,7 +66,7 @@ function draw() {
         ctx.beginPath();
         ctx.lineWidth = 1;
         ctx.strokeStyle = 'black';
-        ctx.fillStile = 'black';
+        ctx.fillStyle = 'black';
         ctx.arc((i + .5) * 10, (j + .5) * 10, 5, 0, 2 * pi , false);
         ctx.stroke();
         ctx.fill();
